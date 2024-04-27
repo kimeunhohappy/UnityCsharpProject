@@ -38,26 +38,26 @@ public class SimpleUI : MonoBehaviour
     {
         currentDday = currentDday + time;
     }
+    void FlowTime()
+    {
+        seconds += Time.deltaTime;
+        Debug.Log($"현재 시간 : {hours} : {minutes} : {seconds}");
+        Timetext.text = $"{hours} : {minutes} : {seconds}";
+
+        if (seconds >= 60)
+        {
+            seconds = 0;
+            minutes = minutes + 1;
+        }
+
+        if (minutes >= 60)
+        {
+            minutes = 0;
+            hours = hours + 1;
+        }
+
+    }
 }
 
 
 
-void FlowTime()
-{
-    seconds += Time.deltatime;
-    Debug.Log($"현재 시간 : {hours} : {minutes} : {seconds}");
-    Timetext.text = $"{hours} : {minutes} : {seconds}";
-
-    if (seconds >= 60)
-    {
-        seconds = 0;
-        minutes = minutes + 1;
-    }
-
-    if (minutes >= 60)
-    {
-        minutes = 0;
-        housr = hours + 1;
-    }
-
-}
